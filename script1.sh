@@ -5,7 +5,7 @@ operacio1() {
   read -p "Introdueix el nom d'usuari:" nom
   count=$(grep -c $nom usuarios.txt)
   if [ $count -eq 0 ]; then
-    echo "No s'ha loguejat"
+    echo "$nom no s'ha loguejat"
   else
     echo "$nom s'ha connectat $count vegades"
   fi
