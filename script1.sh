@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Funció per a l'operació 1:
 operacio1() {
   read -p "Introdueix el nom d'usuari:" nom
   count=$(grep -c $nom usuarios.txt)
@@ -11,20 +10,17 @@ operacio1() {
   fi
 }
 
-# Funció per a l'operació 2:
 operacio2() {
   read -p "Introdueix el nom del mes (en minúscules):" mes
   grep $mes usuarios.txt | awk '{print $1}' | sort -n | uniq
 }
 
-# Funció per a l'operació 3:
 operacio3() {
   read -p "Introdueix el dia:" dia
   read -p "Introdueix el mes (en minúscules):" mes
   grep "$dia $mes" usuarios.txt | awk '{print $1}'
 }
 
-# Funció per a l'operació 4:
 operacio4() {
   read -p "Introdueix el nom d'usuari:" nom
   datault=$(cat usuarios.txt | grep $nom | tail -1 | awk '{print $2,$3}')
