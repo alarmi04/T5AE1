@@ -32,7 +32,7 @@ operacio4() {
 }
 
 # Menú per a seleccionar les operacions fet amb 
-# lo que fet amb el que seriosa un switch de javascript.
+# lo que fet amb el que seria un switch de javascript.
 while true; do
   echo "Selecciona una operació:"
   echo "1. Mostrar el nombre de vegades que s'ha loguejat un usuari"
