@@ -24,11 +24,11 @@ operacio3() {
 operacio4() {
 read -p "Introdueix el nom del usuari:" nom 
 
-vecesUsuario=$(cat usuarios.txt | grep $nom | wc -l) 
+vecesLog=$(cat usuarios.txt | grep $nom | wc -l) 
 max=0 
 mesmax="" 
 
-for j in `seq 1 $vecesUsuario`  
+for j in `seq 1 $vecesLog`  
 do  
     mes=$(cat usuarios.txt | grep $nom | head -n$j | tail -1| awk '{print $3}')
     contador=0  
