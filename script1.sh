@@ -22,9 +22,32 @@ operacio3() {
 }
 
 operacio4() {
-  read -p "Introdueix el nom d'usuari:" nom
-  datault=$(cat usuarios.txt | grep $nom | tail -1 | awk '{print $2,$3}')
-  echo "L'ultima vegada que l'usuari s'ha loguejat es el $datault"
+read -p "Introdueix el nom del usuari:" nom 
+
+vecesUsuario=$(cat usuarios.txt | grep $nom | wc -l) 
+max=0 
+mesmax="" 
+
+for j in `seq 1 $vecesUsuario`  
+do  
+    mes=$(cat usuarios.txt | grep $nom | head -n$j | tail -1| awk '{print $3}')
+    contador=0  
+    for i in enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre 
+    do 
+        contador=$((contador + 1)) 
+        if [ $i = $mes ] 
+        then 
+            if [ $max -lt $contador ] 
+            then  
+                max=$contador 
+                mesmax=$i 
+            fi 
+        fi 
+    done    
+done 
+
+dia=$(cat usuarios.txt | grep $nom | grep $mesmax | awk '{print $2}')
+echo "L'ultima vegada que es va connectar va ser el $dia de $mesmax." 
 }
 
 # Menú per a seleccionar les operacions fet amb 
